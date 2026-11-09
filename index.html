@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Redirigiendo a la App...</title>
+        <script>
+        // Esta función se ejecuta apenas carga la página
+        window.onload = function() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            var urlAndroid = "https://play.google.com/store/apps/details?id=cl.buk.app";
+            var urlIOS = "https://apps.apple.com/cl/app/buk/id1525816308";
+            var urlPC = "tsm.buk.cl/"; 
+
+            if (/android/i.test(userAgent)) {
+                window.location.replace(urlAndroid);
+            } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.location.replace(urlIOS);
+            } else {
+                window.location.replace(urlPC);
+            }
+        };
+    </script>
+    </head>
+    <body
+        style="font-family: Arial, sans-serif; text-align: center; padding-top: 50px;">
+        <p>Redirigiendo a la tienda de aplicaciones...</p>
+    </body>
+</html>
